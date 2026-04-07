@@ -114,6 +114,16 @@ async function run() {
       }
     });
 
+    // Single Book Find
+    app.get("/:id", async (req, res) => {
+      try {
+        const book=await bookcollection.find({_id:new ObjectId(req.params.id)}).toArray()
+        res.json({book})
+      } catch (error) {
+                res.json({ message: error.message });
+      }
+    });
+
     // Delete Book
     app.delete("/:id", async (req, res) => {
       const id = req.params.id;
