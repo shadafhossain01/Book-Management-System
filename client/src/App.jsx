@@ -1,12 +1,18 @@
 import { Outlet } from "react-router"
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import { Toaster } from "react-hot-toast";
 
 function App() {
 
   return (
     <>
-      <div>Header</div>
-      <Outlet />
-      <div>Footer</div>
+      <Navbar />
+      <div className=" top-16.75 relative mx-auto">
+        <Outlet />
+        <Footer />
+        <Toaster />
+      </div>
     </>
   );
 }
